@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import User from './User';
 
-const UserTable = () => {
+const UserTable = ({ user }) => {
   const BASE_URL = 'http://localhost:8080/user';
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -9,7 +9,7 @@ const UserTable = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const resp = await fetch(BASE_URL, {
+        await fetch(BASE_URL, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -25,9 +25,9 @@ const UserTable = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [user]);
   return (
-    <div className="w-full  h-[70vh] relative  flex flex-col justify-center items-center  ">
+    <div className="w-full   relative  flex flex-col justify-center items-center  ">
       <div className="min-w-[50%]  h-auto shadow-xl ">
         <table className=" table-auto w-full">
           <thead className=" text-lg  bg-gray-100 uppercase">

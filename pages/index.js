@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { AddUser } from '../components/AddUser';
 import Navbar from '../components/Navbar';
-import UserTable from '../components/UserTable';
+
 export default function Home() {
   return (
     <div>
@@ -8,8 +9,10 @@ export default function Home() {
         <title>User App</title>
       </Head>
       <Navbar />
-      <UserTable />
-      <main></main>
+
+      <main className=" mt-40">
+        <AddUser />
+      </main>
     </div>
   );
 }
